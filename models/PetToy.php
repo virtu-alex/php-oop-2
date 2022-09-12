@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/Product.php';
+
 class PetToy extends Product
 {
     public $toy_color;
@@ -8,8 +10,9 @@ class PetToy extends Product
 
     //CONSTRUCT
 
-    public function __construct($toy_color, $toy_type, $toy_dimension)
+    public function __construct($toy_color, $toy_type, $toy_dimension, $product_name, $product_price, $product_description)
     {
+        parent::__construct($product_name, $product_price, $product_description);
         $this->setToyColor($toy_color);
         $this->setToyType($toy_type);
         $this->getToyDimension($toy_dimension);
@@ -32,7 +35,7 @@ class PetToy extends Product
         return $this;
     }
     //GETTER
-    
+
     public function getToyColor()
     {
         return $this->toy_color;
@@ -44,5 +47,11 @@ class PetToy extends Product
     public function getToyDimension()
     {
         return $this->toy_dimension;
+    }
+    public function getDiscountedPrice($perc)
+    {
+        $discounted_price = $this->product_price - ($this->product_price * $perc * 20 / 100);
+        return number_format($discounted_price, 2);
+
     }
 }

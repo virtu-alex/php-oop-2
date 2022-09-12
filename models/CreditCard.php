@@ -1,6 +1,6 @@
 <?php
-
-class CreditCard extends Customer
+require_once __DIR__ . '/Customer.php';
+class CreditCard
 {
     protected $number;
     protected $type;
@@ -13,7 +13,7 @@ class CreditCard extends Customer
         $this->setType($type);
         $this->setExpirationDate($expiration_date);
     }
-    
+
     //GETTER
     public function getExpirationDate()
     {
@@ -27,13 +27,12 @@ class CreditCard extends Customer
     {
         return $this->type;
     }
-    
+
     //SETTER
     public function setExpirationDate($expiration_date)
     {
-        if(!is_numeric($expiration_date)) return false;
         $this->expiration_date = $expiration_date;
-        return true;
+        return $this;
     }
     public function setNumber($number)
     {

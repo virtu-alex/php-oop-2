@@ -1,5 +1,8 @@
 <?php
 
+require_once __DIR__ . '/Product.php';
+
+
 class PetFood extends Product
 {
     public $pet_genre;
@@ -7,8 +10,9 @@ class PetFood extends Product
     public $food_type;
 
     //CONSTRUCT
-    public function __construct($pet_genre, $pet_age, $food_type)
+    public function __construct($pet_genre, $pet_age, $food_type, $product_name,$product_price,$product_description)
     {
+        parent::__construct($product_name,$product_price,$product_description);
         $this->setPetGenre($pet_genre);
         $this->setPetAge($pet_age);
         $this->setFoodType($food_type);
@@ -43,5 +47,10 @@ class PetFood extends Product
     public function getFoodType()
     {
         return $this->food_type;
+    }
+    public function getDiscountedPrice($perc)
+    {
+        $discounted_price = $this->product_price - ($this->product_price * $perc * 20 / 100);
+        return number_format($discounted_price, 2);
     }
 }
