@@ -1,14 +1,14 @@
 <?php
 require_once __DIR__ . '/Customer.php';
 
-class Cart extends Customer
+class Cart
 {
     public $products_in_cart = [];
 
-    public function __construct($first_name, $last_name, $is_registered = false)
+    public function __construct()
     {
-        parent::__construct($first_name, $last_name, $is_registered);
     }
+    //AGGIUNGO UN PRODOTTO
     public function addProduct($product)
     {
         $this->products_in_cart[] = $product;
@@ -17,12 +17,11 @@ class Cart extends Customer
     {
         //TODO
     }
+    //RICAVO IL TOTALE
     public function getTotal(){
         $total = 0;
         foreach($this->products_in_cart as $product){
             $total += $product->getProductPrice();
         }
     }
-    
 }
-
