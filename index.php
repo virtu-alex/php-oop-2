@@ -13,7 +13,10 @@ $petToy = new PetToy('rosso','osso', 10, 'Ossix', 35, 'Gli ossi piu croccanti al
 
 var_dump($cart,$petFood,$petToy);
 
-$cart->setCreditCard("321321",'Credit Card', '08/12/2028')->set;
+$cart->setCreditCard("321321",'Credit Card', '08/12/2028');
 
 var_dump($cart);
 
+$carta = new CreditCard('432432' , 'visa', '13-09-2024');
+
+var_dump($carta);

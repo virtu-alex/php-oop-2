@@ -7,12 +7,14 @@ class Customer
     public $last_name;
     public $credit_card;
     public $is_registered;
+    public $product_price;
     //CONSTRUCT
-    public function __construct($first_name, $last_name, $is_registered = false)
+    public function __construct($first_name, $last_name, $product_price, $is_registered = false)
     {
         $this->setFirstName($first_name);
         $this->setLastName($last_name);
         $this->setIsRegistered($is_registered);
+        $this->setProductPrice($product_price);
     }
     //GETTER
     public function getFirstName()
@@ -31,7 +33,16 @@ class Customer
     {
         return $this->credit_card;
     }
+    public function getProductPrice()
+    {
+        return $this->product_price;
+    }
     //SETTER
+    public function setProductPrice($product_price)
+    {
+        $this->product_price = $product_price;
+        return $this;
+    }
     public function setFirstName($first_name)
     {
         $this->first_name = $first_name;

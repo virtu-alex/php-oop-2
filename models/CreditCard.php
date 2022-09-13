@@ -14,10 +14,15 @@ class CreditCard
         $this->setExpirationDate($expiration_date);
     }
 
+    public function isExpired(){
+        $today = strtotime(date("d-m-Y"));
+        return $this->expiration_date < $today;
+    }
+
     //GETTER
     public function getExpirationDate()
     {
-        return $this->expiration_date;
+        return date("d-m-Y", $this->expiration_date);
     }
     public function getNumber()
     {
@@ -31,7 +36,7 @@ class CreditCard
     //SETTER
     public function setExpirationDate($expiration_date)
     {
-        $this->expiration_date = $expiration_date;
+        $this->expiration_date = strtotime($expiration_date);
         return $this;
     }
     public function setNumber($number)

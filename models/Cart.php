@@ -17,5 +17,12 @@ class Cart extends Customer
     {
         //TODO
     }
+    public function getTotal(){
+        $total = 0;
+        foreach($this->products_in_cart as $product){
+            $total += $product->getProductPrice();
+        }
+    }
+    
 }
 
